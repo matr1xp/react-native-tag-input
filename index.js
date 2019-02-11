@@ -282,8 +282,8 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
           >
             <View style={styles.tagInputContainer}>
               <View style={[
-                this.props.inputContainerStyle,
-                styles.textInputContainer
+                styles.textInputContainer,
+                this.props.inputContainerStyle
               ]}>
                 <TextInput
                   ref={this.tagInputRef}
