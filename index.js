@@ -57,6 +57,10 @@ type OptionalProps = {
    */
   editable: boolean,
   /**
+   * Placeholder text
+   */
+  placeholder: string,
+  /**
    * Background color of tags
    */
   tagColor: string,
@@ -112,6 +116,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
     text: PropTypes.string.isRequired,
     onChangeText: PropTypes.func.isRequired,
     editable: PropTypes.bool,
+    placeholder: PropTypes.string,
     tagColor: PropTypes.string,
     tagTextColor: PropTypes.string,
     tagContainerStyle: ViewPropTypes.style,
@@ -137,6 +142,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
 
   static defaultProps = {
     editable: true,
+    placeholder: 'Start typing',
     tagColor: '#dddddd',
     tagTextColor: '#777777',
     inputDefaultWidth: 90,
@@ -299,7 +305,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
                   onChangeText={this.props.onChangeText}
                   autoCapitalize="none"
                   autoCorrect={false}
-                  placeholder="Start typing"
+                  placeholder={this.props.placeholder}
                   returnKeyType="done"
                   keyboardType="default"
                   editable={this.props.editable}
@@ -444,6 +450,7 @@ class Tag extends React.PureComponent<TagProps> {
   }
 
   onPress = () => {
+    console.tron.log(this.props)
     this.props.removeIndex(this.props.index);
   }
 
